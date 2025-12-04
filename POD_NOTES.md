@@ -1,9 +1,11 @@
 ## pod creation imperative way
 kubectl run <pod_name> --image=<image_name>:<image_version>
+
 kubectl run nginx-pod --image=nginx:latest
 
 ## pod creation declerative way
 kubectl create -f <yaml_file_name>
+
 kubectl create -f declerative_pod.yml
 
 ## show error on pod creation/ details of running pod
