@@ -1,14 +1,14 @@
 ## create cluster
-kind create cluster --name <cluster_name>
+kind create cluster --name <span style="color:blue">&lt;cluster_name&gt;</span>
 kind create cluster --name cka-cluster1
 
 ## create cluster with config file
-kind create cluster --name <cluster_name> --config <yaml_file>
+kind create cluster --name <span style="color:blue">&lt;cluster_name&gt;</span> --config <span style="color:blue">&lt;yaml_file&gt;</span>
 kind create cluster --name cka-cluster2 --config config.yml
 
 ## get cluster details
 ### kind will create a cluster with "kind-" prefix
-kubectl cluster-info --context <cluster_name>
+kubectl cluster-info --context <span style="color:blue">&lt;cluster_name&gt;</span>
 kubectl cluster-info --context kind-cka-cluster1
 
 ## list all nodes
@@ -21,5 +21,5 @@ kubectl get nodes -o wide
 kubectl config get-context
 
 ## switching the context/cluster
-kubectl config use-context <cluster_name>
+kubectl config use-context <span style="color:blue">&lt;cluster_name&gt;</span>
 kubectl config use-context kind-cka-cluster1
