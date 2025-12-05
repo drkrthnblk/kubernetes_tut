@@ -27,3 +27,55 @@ kubectl config get-context
 kubectl config use-context `<cluster_name>`
 
 kubectl config use-context kind-cka-cluster1
+
+# Replication sets
+
+## create replication set from yaml file
+
+kubectl apply -f `<yaml_file>`
+
+kubectl apply -f replication_replicaset.yml 
+
+## get all running pods
+kubectl get po
+
+## get all replication sets/ replication controllers
+kubectl get rc
+
+## delete replication set
+
+kubeclt delete rc/`<replication_set_name>`
+
+kubeclt delete rc/ngnix-replication-controller
+
+## declerative way to scale up/ down pods
+
+kubectl `scale` --replicas=2 rs/`<replication_set_name>`
+
+kubectl scale --replicas=2 rs/ngnix-replication-set
+
+## create deployment
+
+kubectl apply -f `<yaml_file>` 
+
+kubectl apply -f deployment.yml
+
+
+## update deployment to use a new image
+## this will do a rolling update on on containers/pods
+
+kubectl `set image` deploy/`<deployment_name>` `<container_name>`=`<container_name>`:`<new_version_of_image>`
+
+kubectl set image deploy/ngnix-deployment ngnix-container=ngnix-container:1.9.1
+
+## get last 2 deployment history
+
+kubectl `rollout history` deploy/`<deployment_name>`
+
+kubectl rollout history deploy/ngnix-deployment
+
+## rollback a deployment
+
+kubectl `rollout undo` deploy/`<deployment_name>`
+
+kubectl rollout undo deploy/ngnix-deployment  

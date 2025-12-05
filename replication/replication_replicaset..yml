@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: ngnix-replication-set
+  labels:
+    env: dev
+spec:
+  selector:
+    matchLabels:
+      app: ngnix
+      env: dev
+  replicas: 2
+  template:
+    # pod template
+    metadata:
+      name: ngnix-pod
+      labels: # Add your labels here, any key value pair can be added
+        app: ngnix
+        env: dev
+    spec:
+      containers:
+      - name: ngnix-container
+        image: nginx:latest
+        ports:
+        - containerPort: 80 # Port on which the container will listen
